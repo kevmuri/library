@@ -1,0 +1,13 @@
+body {
+    background-color: #536878;
+}
+
+.container {
+    gap: 8px;
+    display: flex;
+}
+
+.newBookForm {
+    border: 1px solid black;
+    padding: 8px;
+}
