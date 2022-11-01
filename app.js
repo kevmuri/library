@@ -11,18 +11,23 @@ function Book(title, author, pages, completed) {
 }
 
 function addBookToLibrary() {
-    let title = document.getElementById("newtitle").innerHTML;
-    let author = document.getElementById("newAuthor").innerHTML;
-    let pages = document.getElementById("newPages").innerHTML;
-    let completed = document.getElementById("completed").innerHTML;
+    let title = document.getElementById("newTitle").value;
+    let author = document.getElementById("newAuthor").value;
+    let pages = document.getElementById("newPages").value;
+    let completed = document.getElementById("newCompleted").checked;
 
     let newBook = new Book(title, author, pages, completed);
-    myLibrary += newBook;
-    refresh;
+    myLibrary.push(newBook);
+    refresh();
 }
 
 function refresh() {
+    document.getElementById("newTitle").value = '';
+    document.getElementById("newAuthor").value = '';
+    document.getElementById("newPages").value = '';
+    document.getElementById("newCompleted").checked = false;
+
     for (let i = 0; i < myLibrary.length; i++) {
-        
+        console.log(myLibrary[i].title);
     }
 }
