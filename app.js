@@ -27,7 +27,36 @@ function refresh() {
     document.getElementById("newPages").value = '';
     document.getElementById("newCompleted").checked = false;
 
+    document.getElementById("inventory").innerHTML = '';
+
     for (let i = 0; i < myLibrary.length; i++) {
         console.log(myLibrary[i].title);
+        
+        let node = document.createElement("li");
+        let textnode = document.createTextNode(myLibrary[i].title);
+        node.appendChild(textnode);
+        document.getElementById("inventory").appendChild(node);
+    }
+}
+
+function validate(value, type) {
+    switch (type) {
+        case 'text':
+             if (value == '') {
+                return false;
+             }
+             else {
+                return true;
+             }
+        case 'number':
+            if (value == '') {
+                return false;
+             }
+             else if (Number.isInteger(value) == false) {
+                return false
+             }
+             else {
+                return true;
+             }
     }
 }
